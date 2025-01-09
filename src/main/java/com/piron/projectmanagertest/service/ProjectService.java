@@ -37,6 +37,7 @@ public class ProjectService {
         return convertToDTO(savedProject);
     }
 
+    @Transactional
     public ProjectDTO updateProject(Long id, ProjectDTO projectDTO) {
         Project project = projectRepository.findById(id)
                 .orElseThrow(() -> new ProjectNotFoundException("Project with ID " + id + " not found."));
