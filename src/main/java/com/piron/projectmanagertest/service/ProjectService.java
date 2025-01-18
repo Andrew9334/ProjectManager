@@ -14,8 +14,11 @@ import java.util.stream.Collectors;
 @Service
 public class ProjectService {
 
-    @Autowired
-    private ProjectRepository projectRepository;
+    private final ProjectRepository projectRepository;
+
+    public ProjectService(ProjectRepository projectRepository) {
+        this.projectRepository = projectRepository;
+    }
 
     public List<ProjectDTO> getAllProjects() {
         return projectRepository.findAll().stream()
